@@ -49,11 +49,104 @@ const Article = mongoose.model("Article",articleSchema);
 
 //now we can create documents using this model and save in our database:-
 
+//HOME PAGE :-
+app.get("/",function(req,res){
+    res.render("home");
+});
 
+//Add new Article :-
+app.get("/articles/Add_new_article",function(req,res){
+    res.render("Add-new-article");
+});
 
+//Delete all articles
+app.get("/delete_all_articles",function(req,res){
+    //deleting all the doucments in the 'articles' collection
+    Article.deleteMany({})
+    .then(function(deleted){
+        res.render("Deleted-Successfully");
+    })
+    .catch(function(err){
+        res.send(err);
+    });
+    
+});
 
+//Deleting a Specific Article:-
 
+app.get("/article/delete_specific_article",function(req,res){
+    res.render("Delete_Specific");
+});
 
+app.post("/delete_one_article",function(req,res){
+    Article.deleteOne({title:req.body.title})
+    .then(function(deleted){
+        console.log(deleted);
+        res.render("Deleted_One_Successfully");
+    })
+    .catch(function(err){
+        res.send(err);
+        console.log(err);
+    });
+});
+
+app.get("/article/fetch_specific_article",function(req,res){
+    res.render("Fetch_Specific");
+});
+
+app.post("/fetch_one_article",function(req,res){
+    //now we find the document in the 'articles' collection using the 'title' of the article entered by the user:-
+    Article.findOne({title:req.body.title})
+    .then(function(article_found){
+        if(article_found===null){
+            res.send("Article Not Found !!");
+        }
+        res.render("Fetched_Article",{article_found:article_found});
+    })
+    .catch(function(err){
+        res.send(err);
+    });
+});
+
+app.get("/article/replace_an_article",function(req,res){
+    res.render("Replace_Specific");
+});
+app.post("/replace_one_article",function(req,res){
+    //'put' request functionality :-
+    Article.replaceOne(
+        {title:req.body.replace_title},
+        {title:req.body.updated_title,
+         content:req.body.updated_content 
+        }
+    ).then(function(updated){
+        console.log(updated);
+        res.render("Replaced_Successfully");
+    })
+    .catch(function(err){
+        console.log(err);
+        res.send(err);
+    });
+
+});
+
+//Updating an article:-
+
+app.get("/article/update_an_article",function(req,res){
+    res.render("Update_specific");
+});
+
+app.post("/update_one_article",function(req,res){
+    //"patch" http request functionality :-
+    Article.updateOne({title:req.body.update_title},{title:req.body.new_title,content:req.body.new_content})
+    .then(function(updated){
+        console.log(updated);
+        res.render("Updated_Successfully");
+    })
+    .catch(function(err){
+        console.log(err);
+        res.send(err);
+    });
+});
 
 //SETTING UP THE RESTFUL API 
 
@@ -67,7 +160,7 @@ app.route("/articles")
     //find all data from database and return it:-
     Article.find({})
     .then(function(articles){
-        res.send(articles);
+        res.render("Read_all_Articles",{articles:articles});
     })
     .catch(function(err){
         res.send(err);
@@ -84,7 +177,7 @@ app.route("/articles")
     //saving the document/article in the 'articles' collection in the wikiDB database:-
     newArticle.save()
     .then(function(saved){
-        res.send("Successfully saved the new article!")
+        res.render("Added-Successfully")
     })
     .catch(function(err){
         res.send(err);
@@ -156,7 +249,7 @@ app.route("/articles")
     //finding the specific document in the articles collection and deleting it using the mongoose deleteone operation:
     Article.deleteOne({title:req.params.article_title}).then(function(deleted){
         console.log(deleted);
-        res.send("Successfully deleted the required document from the 'articles' collection in wikiDB");
+        res.send("Succ`essfully deleted the required document from the 'articles' collection in wikiDB");
     })
     .catch(function(err){
         res.send(err);

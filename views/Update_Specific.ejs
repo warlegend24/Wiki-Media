@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wiki-Media</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* Navbar styling and other CSS styles */
+
+    /* ... Existing CSS styles ... */
+    
+    /* Form styling */
+    .form-container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-top: 50px;
+    }
+    
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #555;
+      text-transform: uppercase;
+    }
+    
+    .form-container label {
+      display: block;
+      margin-bottom: 10px;
+      color: #333;
+      font-weight: bold;
+    }
+    
+    .form-container input[type="text"],
+    .form-container textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    
+    .form-container input[type="submit"] {
+      background-color: #ff6a88;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    
+    .form-container input[type="submit"]:hover {
+      background-color: #ff4d73;
+    }
+    .styled-button {
+        background-color: #ff6a88;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .styled-button:hover {
+        background-color: #ff4d73;
+    }
+
+  </style>
+</head>
+
+
+<body>
+  <!-- Navbar -->
+
+  <!-- ... Existing Navbar code ... -->
+  
+  <!-- Form -->
+  <div class="form-container">
+    <h2>Updating a specific article</h2>
+    <form method="post" action="/update_one_article">
+      <!-- input-1 -->
+      <label for="update_title">Article title to be updated:</label>
+      <input type="text" id="update_title" name="update_title" required>
+      <!-- input-2 -->
+      <label for="new_title">New title:</label>
+      <input type="text" name="new_title" id="new_title">
+      <!-- input -3 -->
+      <label for="updated_content">New content:</label>
+      <input type="text" name="new" id="new_content">
+      <button class="styled-button" type="submit">Continue</button>
+    </form>
+  </div>
+</body>
+
+
+
+
+</html>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wiki-Media</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: url('library.gif') fixed;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+    }
+    
+    /* Navbar */
+    .navbar {
+      background-color: #333;
+      padding: 10px;
+    }
+    
+    .navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    
+    .navbar li {
+      float: left;
+    }
+    
+    .navbar li a {
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    
+    .navbar li a:hover {
+      background-color: #555;
+    }
+    
+    /* Logo */
+    .logo {
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    
+    /* Heading */
+    .heading {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 36px;
+      color: #555;
+      text-transform: uppercase;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Option Cards */
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    
+    .card {
+      width: 250px;
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin: 10px;
+      transition: transform 0.3s ease;
+      animation: float 5s infinite;
+    }
+    
+    @keyframes float {
+      0% {
+        transform: translatey(0px);
+      }
+      50% {
+        transform: translatey(-10px);
+      }
+      100% {
+        transform: translatey(0px);
+      }
+    }
+    
+    .card:hover {
+      transform: scale(1.05);
+    }
+    
+    .card a {
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    
+    .card a:hover {
+      color: #ff6a88;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <ul>
+      <li><a class="logo" href="#">Wiki-Media</a></li>
+    </ul>
+  </div>
+  
+  <!-- Heading -->
+  <h1 class="heading">Welcome to Wiki-Media</h1>
+  
+  <!-- Option Cards -->
+  <div class="options">
+    <div class="card">
+      <div class="card-content">
+        <a href="/articles">Read all articles</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <a href="/articles/Add_new_article">Add a new article</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <a href="/delete_all_articles">Delete all articles</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <a href="/article/delete_specific_article">Delete a specific article</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <a href="/article/fetch_specific_article">Fetch a specific article</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <a href="/article/replace_an_article">Replace an article</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <a href="/article/update_an_article">Update an article</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Wiki-Media</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* Navbar */
+    .navbar {
+      background-color: #333;
+      padding: 10px;
+    }
+    
+    .navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    
+    .navbar li {
+      float: left;
+    }
+    
+    .navbar li a {
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    
+    .navbar li a:hover {
+      background-color: #555;
+    }
+    
+    /* Logo */
+    .logo {
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    
+    /* Heading */
+    .heading {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 36px;
+      color: #555;
+      text-transform: uppercase;
+    }
+    
+    /* Option Cards */
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    
+    .card {
+      width: 250px;
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin: 10px;
+      transition: transform 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: scale(1.05);
+    }
+    
+    .card a {
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    
+    .card-content {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  Navbar
+  <div class="navbar">
+    <ul>
+      <li><a class="logo" href="#">Wiki-Media</a></li>
+    </ul>
+  </div>
+  
+  Heading
+  <h1 class="heading">Welcome to Wiki-Media</h1>
+  
+  Option Cards
+  <!-- <div class="options">
+    <div class="card">
+      <div class="card-content">
+        <a href="#">Read all articles</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <a href="#">Add a new article</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <a href="#">Delete all articles</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <a href="#">Delete a specific article</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <a href="#">Fetch a specific article</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <a href="#">Delete a specific article</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <a href="#">Replace an article</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <a href="#">Update an article</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html> -->
+ 
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Wiki-Media</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 30px;
+      color: #555;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    li {
+      margin: 10px;
+    }
+    a {
+      display: block;
+      padding: 15px 25px;
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    a:hover {
+      background: linear-gradient(to right, #ff6a88, #ffcc5c);
+    }
+  </style>
+</head>
+<body>
+  <h1>Wiki-Media</h1>
+  <ul>
+    <li><a href="#">Read all articles</a></li>
+    <li><a href="#">Add a new article</a></li>
+    <li><a href="#">Delete all articles</a></li>
+    <li><a href="#">Delete a specific article</a></li>
+    <li><a href="#">Fetch a specific article</a></li>
+    <li><a href="#">Delete a specific article</a></li>
+    <li><a href="#">Replace an article</a></li>
+    <li><a href="#">Update an article</a></li>
+  </ul>
+</body>
+</html>
+ -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Wiki-Media</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      text-align: center;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    a {
+      display: block;
+      padding: 10px;
+      background-color: #f2f2f2;
+      color: #333;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    a:hover {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <h1>Wiki-Media</h1>
+  <ul>
+    <li><a href="#">Read all articles</a></li>
+    <li><a href="#">Add a new article</a></li>
+    <li><a href="#">Delete all articles</a></li>
+    <li><a href="#">Delete a specific article</a></li>
+    <li><a href="#">Fetch a specific article</a></li>
+    <li><a href="#">Delete a specific article</a></li>
+    <li><a href="#">Replace an article</a></li>
+    <li><a href="#">Update an article</a></li>
+  </ul>
+</body>
+</html> -->
