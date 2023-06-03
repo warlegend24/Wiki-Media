@@ -132,7 +132,7 @@ app.post("/replace_one_article",function(req,res){
 //Updating an article:-
 
 app.get("/article/update_an_article",function(req,res){
-    res.render("Update_specific");
+    res.render("Update_Specific");
 });
 
 app.post("/update_one_article",function(req,res){
